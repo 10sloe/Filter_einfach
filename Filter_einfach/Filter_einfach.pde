@@ -2,27 +2,27 @@ PImage bild;
 
 void setup() {
  size(640, 480);
- bild = loadImage("blume.jpg"); // Lädt das Bild
- filter();    // Verändert das Bild
- image(bild,0,0);  // Zeigt das veränderte Bild an
+ bild = loadImage("blume.jpg");  // K1:
+ filter();        // K2:
+ image(bild,0,0);   // K3: 
 }
 
 void filter()
 {
-  bild.loadPixels();             // Lädt die Pixel des Bildes in das Pixelarray
-  for (int i = 0; i < bild.pixels.length; i++) {
-    color c = bild.pixels[i];
-    // Ermittelt die r,g,b-Werte des Bildes
-    float r = red(c);
+  bild.loadPixels();            
+  for (int i = 0; i < bild.pixels.length; i++) {   // K4:
+    color c = bild.pixels[i];    // K5:
+    
+    float r = red(c);   // K6:
     float g = green(c);
     float b = blue(c);
     
-    // Manipuliert die Werte
-    g = 0; // Nimmt alle Grüntöne raus
+    
+    g = 0;     // K7: 
        
-    // Erzeugt die neue Farbe
-    color cneu = color(r,g,b);
-    bild.pixels[i] = cneu; 
+    
+    color cneu = color(r,g,b);    // K8: 
+    bild.pixels[i] = cneu;         // K9:
   }
-  bild.updatePixels();  // überträgt die Infos des Pixelarrays ins Bild
+  bild.updatePixels();  
 }
